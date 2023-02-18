@@ -10,6 +10,9 @@
   },
   "dependencies": {
     "@types/node": "^18.13.0",
+    "@vicons/ionicons5": "^0.12.0",
+    "pinia": "^2.0.30",
+    "sass": "^1.58.3",
     "vue": "^3.2.45",
     "vue-router": "^4.0.13"
   },

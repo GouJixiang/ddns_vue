@@ -1,12 +1,37 @@
-import { createApp } from 'vue'
 import {
     create,
-    NButton
+    NConfigProvider,
+    NGlobalStyle,
+    NButton,
+    NLayout,
+    NLayoutHeader,
+    NLayoutContent,
+    NLayoutFooter,
+    NWatermark,
+    NGrid,
+    NGi,
+    NSpace,
+    NSwitch,
+    NIcon,
+    NDivider,
 } from 'naive-ui'
 
 const naive = create({
     components: [
-        NButton
+        NConfigProvider,
+        NGlobalStyle,
+        NButton,
+        NLayout,
+        NLayoutHeader,
+        NLayoutContent,
+        NLayoutFooter,
+        NWatermark,
+        NGrid,
+        NGi,
+        NSpace,
+        NSwitch,
+        NIcon,
+        NDivider,
     ]
 })
 
