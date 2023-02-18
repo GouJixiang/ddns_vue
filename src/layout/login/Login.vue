@@ -3,7 +3,7 @@
   <div class="w-full">
     <n-space justify="space-between" class="flex items-center">
       <div class="logo-div flex items-center pl-6">
-        <img src="public/vite.svg" alt="DDNS-IPV6">
+        <img src="/vite.svg" alt="DDNS-IPV6">
         <div class="text-center pl-2">
           <span class="title">DDNS FOR IPV6</span>
           <br>
