@@ -14,6 +14,14 @@ import {
     NSwitch,
     NIcon,
     NDivider,
+    NEl,
+    NAlert,
+    NSteps,
+    NStep,
+    NForm,
+    NFormItem,
+    NInput,
+    NCard,
 } from 'naive-ui'
 
 const naive = create({
@@ -32,6 +40,14 @@ const naive = create({
         NSwitch,
         NIcon,
         NDivider,
+        NEl,
+        NAlert,
+        NSteps,
+        NStep,
+        NForm,
+        NFormItem,
+        NInput,
+        NCard,
     ]
 })
 
