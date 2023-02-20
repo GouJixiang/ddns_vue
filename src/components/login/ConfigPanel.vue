@@ -25,20 +25,33 @@
     </n-step>
   </n-steps>
   <!-- 表单 -->
-  <n-card class="mt-4" title="用户设置" hoverable>
+  <n-card class="mt-4" title="用户设置" hoverable embedded>
     <n-form
-        ref="formRef"
-        :label-width="80"
-        :model="formValue"
-    >
-      <n-form-item label="登录名" path="user.name" show-require-mark>
-        <n-input v-model:value="formValue.user.name" placeholder="登录名" />
+      ref="formRef"
+      :rules="userConfigRule"
+      :label-width="80"
+      :model="formValue">
+      <n-form-item label="登录名" path="account" show-require-mark>
+        <n-input
+          v-model:value="formValue.account"
+          maxlength="20"
+          placeholder="登录名" />
       </n-form-item>
-      <n-form-item label="密码" path="user.age" show-require-mark>
-        <n-input type="password" show-password-on="mousedown" v-model:value="formValue.user.age" placeholder="密码" />
+      <n-form-item label="密码" path="password" show-require-mark>
+        <n-input
+          v-model:value="formValue.password"
+          type="password"
+          maxlength="20"
+          show-password-on="mousedown"
+          placeholder="密码" />
       </n-form-item>
-      <n-form-item label="重复密码" path="phone" show-require-mark>
-        <n-input type="password" show-password-on="mousedown" v-model:value="formValue.phone" placeholder="重复输入密码" />
+      <n-form-item label="重复密码" path="reenteredPassword" show-require-mark>
+        <n-input
+          v-model:value="formValue.reenteredPassword"
+          type="password"
+          maxlength="20"
+          show-password-on="mousedown"
+          placeholder="重复输入密码" />
       </n-form-item>
     </n-form>
     <template #action>
@@ -54,19 +67,38 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { StepsProps } from 'naive-ui'
+import UserConfig = ConfigPanel.UserConfig
+import userConfigRule from '@/rules/config/user'
+import axios from 'axios'
 
 const current = ref<number>(1)
 const currentStatus = ref<StepsProps['status']>('process')
-const formValue = ref({
-  user: {
-    name: '',
-    age: ''
-  },
-  phone: ''
+const formValue = ref<UserConfig>({
+  account: '',
+  password: '',
+  reenteredPassword: '',
+  role: 'admin'
 })
 
+async function test() {
+  window.$loadingBar?.start()
+  console.log('我只写了')
+  await axios
+    .get('http://46.4.5.6:8898/a')
+    .then((res) => {
+      console.log(res)
+      window.$loadingBar?.finish()
+    })
+    .catch((err) => {
+      console.log(err)
+      window.$loadingBar?.error()
+    })
+  console.log('我只希望完了')
+}
+
+test()
+
+// 测试加载条
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

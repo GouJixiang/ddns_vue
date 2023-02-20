@@ -1,10 +1,5 @@
-<template>
-这是登录界面
-</template>
+<template> 这是登录界面 </template>
 
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

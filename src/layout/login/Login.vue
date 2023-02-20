@@ -2,7 +2,7 @@
   <div class="login-container">
     <div class="box">
       <div class="title-box">
-        <img src="/vite.svg">
+        <img src="/vite.svg" />
         <h1>动态域名配置工具</h1>
       </div>
       <div class="components-box">
@@ -12,7 +12,6 @@
       </div>
     </div>
   </div>
-
 </template>
 
 <script setup lang="ts">
@@ -47,5 +46,4 @@ const isFirstOpen = ref<boolean>(true)
     }
   }
 }
-
 </style>

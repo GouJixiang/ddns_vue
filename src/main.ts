@@ -13,5 +13,4 @@ const app = createApp(App)
 app.use(naiveUi)
 app.use(router)
 app.use(createPinia())
-
 app.mount('#app')
