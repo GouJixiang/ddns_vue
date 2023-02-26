@@ -1,3 +1,4 @@
+import { App } from 'vue'
 import {
   create,
   NConfigProvider,
@@ -22,7 +23,9 @@ import {
   NFormItem,
   NInput,
   NCard,
-  NLoadingBarProvider
+  NLoadingBarProvider,
+  NModal,
+  NSelect
 } from 'naive-ui'
 
 const naive = create({
@@ -49,8 +52,12 @@ const naive = create({
     NFormItem,
     NInput,
     NCard,
-    NLoadingBarProvider
+    NLoadingBarProvider,
+    NModal,
+    NSelect
   ]
 })
 
-export default naive
+export function setupNaive(app: App<Element>) {
+  app.use(naive)
+}

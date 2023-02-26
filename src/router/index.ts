@@ -4,6 +4,7 @@ import {
   RouteRecordRaw,
   Router
 } from 'vue-router'
+import { App } from 'vue'
 
 const routes: RouteRecordRaw[] = [
   {
@@ -32,7 +33,7 @@ const router: Router = createRouter({
 
 // 路由拦截器
 router.beforeEach(async (to, from, next) => {
-  window.$loadingBar?.start()
+  window.$loading?.start()
   if (
     to.matched.some((record) => record.meta.authentication) &&
     to.meta.authentication
@@ -53,7 +54,11 @@ router.beforeEach(async (to, from, next) => {
 })
 
 router.afterEach(() => {
-  console.log('跳转完毕')
+  window.$loading?.finish()
 })
+
+export function setupRouter(app: App) {
+  app.use(router)
+}
 
 export default router

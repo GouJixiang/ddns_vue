@@ -9,7 +9,8 @@
     :height="384"
     :x-offset="12"
     :y-offset="60"
-    :rotate="-15" />
+    :rotate="-15"
+  />
   <n-layout>
     <n-layout-header class="bg-blue-500">
       <!-- 三列式栅格 -->

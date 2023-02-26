@@ -30,12 +30,14 @@
       ref="formRef"
       :rules="userConfigRule"
       :label-width="80"
-      :model="formValue">
+      :model="formValue"
+    >
       <n-form-item label="登录名" path="account" show-require-mark>
         <n-input
           v-model:value="formValue.account"
           maxlength="20"
-          placeholder="登录名" />
+          placeholder="登录名"
+        />
       </n-form-item>
       <n-form-item label="密码" path="password" show-require-mark>
         <n-input
@@ -43,7 +45,8 @@
           type="password"
           maxlength="20"
           show-password-on="mousedown"
-          placeholder="密码" />
+          placeholder="密码"
+        />
       </n-form-item>
       <n-form-item label="重复密码" path="reenteredPassword" show-require-mark>
         <n-input
@@ -51,14 +54,19 @@
           type="password"
           maxlength="20"
           show-password-on="mousedown"
-          placeholder="重复输入密码" />
+          placeholder="重复输入密码"
+        />
       </n-form-item>
     </n-form>
     <template #action>
       <n-space class="w-1/2" justify="space-between" style="margin: 0 auto">
-        <n-button type="primary">上一步</n-button>
-        <n-button type="primary">下一步</n-button>
-        <n-button type="error">取消配置</n-button>
+        <n-button type="primary" :disabled="current === 1" @click="current--"
+          >上一步</n-button
+        >
+        <n-button type="primary" :disabled="current === 4" @click="current++"
+          >下一步</n-button
+        >
+        <n-button type="error">跳过配置</n-button>
       </n-space>
     </template>
   </n-card>
@@ -69,7 +77,6 @@ import { ref } from 'vue'
 import { StepsProps } from 'naive-ui'
 import UserConfig = ConfigPanel.UserConfig
 import userConfigRule from '@/rules/config/user'
-import axios from 'axios'
 
 const current = ref<number>(1)
 const currentStatus = ref<StepsProps['status']>('process')
@@ -79,26 +86,6 @@ const formValue = ref<UserConfig>({
   reenteredPassword: '',
   role: 'admin'
 })
-
-async function test() {
-  window.$loadingBar?.start()
-  console.log('我只写了')
-  await axios
-    .get('http://46.4.5.6:8898/a')
-    .then((res) => {
-      console.log(res)
-      window.$loadingBar?.finish()
-    })
-    .catch((err) => {
-      console.log(err)
-      window.$loadingBar?.error()
-    })
-  console.log('我只希望完了')
-}
-
-test()
-
-// 测试加载条
 </script>
 
 <style scoped></style>

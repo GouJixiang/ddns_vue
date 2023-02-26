@@ -3,7 +3,8 @@
     <n-layout-header
       class="top-0 z-10 h-12 overflow-hidden"
       position="absolute"
-      bordered>
+      bordered
+    >
       <n-space justify="space-between" class="items-center h-full">
         <div class="logo-div flex items-center pl-6">
           <img src="/vite.svg" alt="DDNS-IPV6" />
@@ -12,36 +13,43 @@
           </div>
         </div>
         <div></div>
-        <div class="pr-6 flex items-center">
+        <div id="right-header" class="pr-6 flex items-center">
           <a
             href="https://ipw.cn/ipv6webcheck/?site=ipw.cn"
             title="本站支持IPv6访问"
-            target="_blank">
-            <img
+            target="_blank"
+            ><img
               style="display: inline-block; vertical-align: middle"
               alt="本站支持IPv6访问"
-              src="https://static.ipw.cn/icon/ipv6-s1.svg" />
-          </a>
+              src="https://static.ipw.cn/icon/ipv6-s4.svg"
+          /></a>
           <n-button
             tag="a"
             href="http://43.136.217.196"
             target="_blank"
-            quaternary
-            type="primary">
+            text
+            type="primary"
+          >
             QT-MBox
           </n-button>
           <n-button
             tag="a"
             href="https://github.com/GouJixiang"
             target="_blank"
-            quaternary
-            type="primary">
+            text
+            type="primary"
+          >
             Github
           </n-button>
-          <n-switch v-model:value="active" @update:value="handleUpdateValue">
-            <template #checked> 深色 </template>
-            <template #unchecked> 浅色 </template>
-          </n-switch>
+          <n-button
+            text
+            style="font-size: 20px"
+            @click="showSettings = !showSettings"
+          >
+            <n-icon :color="useDesignSettingStore().appTheme">
+              <SettingsIcon />
+            </n-icon>
+          </n-button>
         </div>
       </n-space>
     </n-layout-header>
@@ -51,7 +59,8 @@
     <n-layout-footer
       class="bottom-0 h-12 z-10 text-center"
       position="absolute"
-      bordered>
+      bordered
+    >
       <n-el tag="span" class="text-el"
         >Copyright &copy; occn.top 2022 | All right reserved
       </n-el>
@@ -59,21 +68,22 @@
       <n-el tag="span" class="text-el">欲买桂花同载酒，终不似，少年游</n-el>
     </n-layout-footer>
   </n-layout>
+  <!-- 设置模态框 -->
+  <LayoutSetting
+    :show-modal="showSettings"
+    @update-show-modal="updateShowModal"
+  />
 </template>
 
 <script setup lang="ts">
+import { SettingsOutline as SettingsIcon } from '@vicons/ionicons5'
 import { ref } from 'vue'
-import { themeStore } from '@/store/theme'
+import LayoutSetting from '@/components/system/LayoutSetting.vue'
+import { useDesignSettingStore } from '@/store/modules/designSetting'
 
-const theme = themeStore()
-const active = ref<boolean>(theme.isLightTheme())
-
-/**
- * 主题切换按钮的切换方法
- * @param value
- */
-const handleUpdateValue = (value: boolean) => {
-  theme.setTheme(value)
+const showSettings = ref<boolean>(false)
+const updateShowModal = (value: boolean) => {
+  showSettings.value = value
 }
 </script>
 
@@ -85,6 +95,12 @@ const handleUpdateValue = (value: boolean) => {
 
   span {
     color: rgb(232 128 128);
+  }
+}
+
+#right-header {
+  & > * {
+    margin: 0 10px;
   }
 }
 
