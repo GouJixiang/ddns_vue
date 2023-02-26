@@ -27,7 +27,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, toRefs } from 'vue'
+import { computed, toRefs } from 'vue'
 import { useDesignSettingStore } from '@/store/modules/designSetting'
 
 const props = defineProps<{
@@ -43,7 +43,7 @@ const bodyStyle = {
 
 /** 主题设置 */
 const designSettingStore = useDesignSettingStore()
-const themeOptions = [
+let themeOptions = [
   {
     label: '浅色',
     value: 1

@@ -1,3 +1,5 @@
+import { useOsTheme } from 'naive-ui'
+
 export const appThemeList: string[] = [
   '#2d8cf0',
   '#0960bd',
@@ -19,11 +21,23 @@ export const appThemeList: string[] = [
   '#FC5404'
 ]
 
+let darkTheme
+let appTheme = '#2d8cf0'
+
+const themeStr = localStorage.getItem('theme')
+if (themeStr) {
+  const themeObj = JSON.parse(themeStr)
+  darkTheme = themeObj.darkTheme
+  appTheme = themeObj.appTheme
+} else {
+  const osThemeRef = useOsTheme()
+  osThemeRef.value === 'dark' ? (darkTheme = true) : (darkTheme = false)
+}
 const setting = {
   // 深色主题
-  darkTheme: true,
+  darkTheme,
   // 系统主题色
-  appTheme: '#2d8cf0',
+  appTheme,
   // 系统内置主题色列表
   appThemeList
 }

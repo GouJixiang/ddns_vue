@@ -29,9 +29,13 @@ const getThemeOverrides = computed(() => {
     }
   }
 })
-
 const getDarkTheme = computed(() =>
   designStore.darkTheme ? darkTheme : undefined
 )
+
+/** 监听样式变化，并存储到浏览器 */
+designStore.$subscribe(() => {
+  localStorage.setItem('theme', JSON.stringify(designStore.$state))
+})
 </script>
 <style scoped></style>
