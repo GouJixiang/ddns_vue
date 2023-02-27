@@ -57,13 +57,19 @@
       <router-view />
     </n-layout-content>
     <n-layout-footer
-      class="bottom-0 h-12 z-10 text-center"
+      class="bottom-0 h-16 z-10 text-center"
       position="absolute"
       bordered
     >
-      <n-el tag="span" class="text-el"
-        >Copyright &copy; occn.top 2022 | All right reserved
-      </n-el>
+      <n-el
+        tag="a"
+        class="text-el"
+        href="https://beian.miit.gov.cn/"
+        target="_blank"
+        >陕ICP备2023001751号</n-el
+      >
+      <br />
+      <n-el tag="span" class="text-el">Copyright &copy; Occn.top 2023</n-el>
       <br />
       <n-el tag="span" class="text-el">欲买桂花同载酒，终不似，少年游</n-el>
     </n-layout-footer>

@@ -25,7 +25,8 @@ import {
   NCard,
   NLoadingBarProvider,
   NModal,
-  NSelect
+  NSelect,
+  NP
 } from 'naive-ui'
 
 const naive = create({
@@ -54,7 +55,8 @@ const naive = create({
     NCard,
     NLoadingBarProvider,
     NModal,
-    NSelect
+    NSelect,
+    NP
   ]
 })
 
