@@ -5,6 +5,7 @@ import eslintPlugin from 'vite-plugin-eslint'
 
 export default defineConfig({
   plugins: [vue(), eslintPlugin()],
+  base: './',
   // 设置路径别名
   resolve: {
     alias: [
