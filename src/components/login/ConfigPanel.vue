@@ -66,7 +66,9 @@
         <n-button type="primary" :disabled="current === 4" @click="current++"
           >下一步</n-button
         >
-        <n-button type="error">跳过配置</n-button>
+        <n-badge value="beta" type="warning">
+          <n-button type="error" @click="handleSkipConfig">跳过配置</n-button>
+        </n-badge>
       </n-space>
     </template>
   </n-card>
@@ -86,6 +88,22 @@ const formValue = ref<UserConfig>({
   reenteredPassword: '',
   role: 'admin'
 })
+const handleSkipConfig = () => {
+  window.$dialog?.warning({
+    title: '跳过配置',
+    content: () => {
+      return `默认用户登录账户名：admin，密码：123456`
+    },
+    positiveText: '跳过配置',
+    negativeText: '取消',
+    onPositiveClick: () => {
+      window.$message?.info('跳过配置')
+    },
+    onNegativeClick: () => {
+      window.$message?.error('取消')
+    }
+  })
+}
 </script>
 
 <style scoped></style>

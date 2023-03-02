@@ -1,4 +1,5 @@
 <template>
+  <LoadingPanel />
   <n-layout class="h-full">
     <n-layout-header
       class="top-0 z-10 h-12 overflow-hidden"
@@ -9,7 +10,7 @@
         <div class="logo-div flex items-center pl-6">
           <img src="/vite.svg" alt="DDNS-IPV6" />
           <div class="text-center pl-2">
-            <h1 class="title">DDNS 动态域名解析<span>（Go版）</span></h1>
+            <h1 class="title">DDns 动态域名解析<span>（Go版）</span></h1>
           </div>
         </div>
         <div></div>
@@ -66,7 +67,7 @@
         class="text-el"
         href="https://beian.miit.gov.cn/"
         target="_blank"
-        >陕ICP备2023001751号</n-el
+        >陕ICP备 2023001751号</n-el
       >
       <br />
       <n-el tag="span" class="text-el">Copyright &copy; Occn.top 2023</n-el>
@@ -86,6 +87,7 @@ import { SettingsOutline as SettingsIcon } from '@vicons/ionicons5'
 import { ref } from 'vue'
 import LayoutSetting from '@/components/system/LayoutSetting.vue'
 import { useDesignSettingStore } from '@/store/modules/designSetting'
+import LoadingPanel from '@/components/system/LoadingPanel.vue'
 
 const showSettings = ref<boolean>(false)
 const updateShowModal = (value: boolean) => {

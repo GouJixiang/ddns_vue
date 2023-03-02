@@ -12,6 +12,7 @@ import { AppProvider } from '@/components/Application'
 import { useDesignSettingStore } from '@/store/modules/designSetting'
 import { lighten } from '@/utils/index'
 import { darkTheme } from 'naive-ui'
+import LoadingPanel from '@/components/system/LoadingPanel.vue'
 
 const designStore = useDesignSettingStore()
 const getThemeOverrides = computed(() => {

@@ -26,7 +26,9 @@ import {
   NLoadingBarProvider,
   NModal,
   NSelect,
-  NP
+  NP,
+  NResult,
+  NBadge
 } from 'naive-ui'
 
 const naive = create({
@@ -56,7 +58,9 @@ const naive = create({
     NLoadingBarProvider,
     NModal,
     NSelect,
-    NP
+    NP,
+    NResult,
+    NBadge
   ]
 })
 
