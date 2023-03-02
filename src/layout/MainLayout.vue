@@ -25,7 +25,7 @@
           /></a>
           <n-button
             tag="a"
-            href="http://43.136.217.196"
+            href="https://docs.occn.top"
             target="_blank"
             text
             type="primary"
