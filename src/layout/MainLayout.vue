@@ -10,7 +10,7 @@
         <div class="logo-div flex items-center pl-6">
           <img src="/vite.svg" alt="DDNS-IPV6" />
           <div class="text-center pl-2">
-            <h1 class="title">DDns 动态域名解析工具<span>（Go版）</span></h1>
+            <h1 class="title">DDns 动态域名解析<span>（Go版）</span></h1>
           </div>
         </div>
         <div></div>
