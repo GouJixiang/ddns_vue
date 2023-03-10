@@ -26,8 +26,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-      - run: npm install
-      - run: npm build
+      - run: npm install yarn -g
+      - run: yarn install
+      - run: yarn build
       - name: sync files
         uses: wangyucode/sftp-upload-action@v1.1
         with:
@@ -35,7 +36,7 @@ jobs:
           port: ${{ secrets.SERVER_PORT }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
-          localDir: "docs/.vitepress/dist"
+          localDir: "/dist"
           remoteDir: ${{ secrets.SERVER_DESTINATION }}
       - name: restart nginx.service
         uses: appleboy/ssh-action@master
