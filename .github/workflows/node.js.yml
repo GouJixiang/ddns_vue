@@ -44,6 +44,6 @@ jobs:
           port: ${{ secrets.SERVER_PORT }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
-          script:s
+          script:
             systemctl restart nginx
 
