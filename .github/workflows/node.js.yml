@@ -36,7 +36,7 @@ jobs:
           port: ${{ secrets.SERVER_PORT }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
-          localDir: "/dist"
+          localDir: "dist"
           remoteDir: ${{ secrets.SERVER_DESTINATION }}
       - name: restart nginx.service
         uses: appleboy/ssh-action@master
